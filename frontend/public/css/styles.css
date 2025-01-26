@@ -1,4 +1,64 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
 .m-navbar {
   border-bottom: 1px solid #ffffff74;
   padding: 0.5rem 0;
+}
+
+.m-title {
+  font-size: 3rem;
+}
+
+.poster {
+  height: 100%;
+}
+
+.movie_rating {
+  display: flex;
+  align-items: center;
+  font-size: 3rem;
+}
+
+.movie_rating_star {
+  color: #d3d3d3;
+}
+
+.movie_rating_star.filled {
+  color: gold;
+}
+
+.movie_content {
+  display: flex;
+  gap: 1rem;
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  .movie_content {
+    flex-direction: column;
+  }
+
+  .poster {
+    height: fit-content;
+  }
+}
+
+.movie_content_tabs {
+  padding: 1.5rem;
+  height: 100%;
+}
+
+/* Bulma overrides */
+
+.modal-card {
+  width: 80%;
+  height: 90%;
 }

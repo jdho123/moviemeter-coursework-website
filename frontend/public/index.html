@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
+    <!-- Navbar -->
     <nav class="navbar m-navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <a href="#" class="navbar-item">
@@ -53,21 +54,55 @@
         </div>
       </div>
     </nav>
-    <div class="modal">
+
+    <!-- Movie Modal -->
+    <div class="modal is-active" id="movie-modal">
       <div class="modal-background"></div>
       <div class="modal-card">
-        <header class="modal-card-head">
-          <p class="modal-card-title">Rating: 7.8/10</p>
+        <header class="modal-card-head is-flex has-text-centered">
+          <strong class="m-title is-size-3-mobile">7.3 / 10</strong>
+          <div class="movie_rating is-size-3-mobile ml-auto">
+            <span class="movie_rating_star filled">★</span>
+            <span class="movie_rating_star filled">★</span>
+            <span class="movie_rating_star filled">★</span>
+            <span class="movie_rating_star filled">★</span>
+            <span class="movie_rating_star">★</span>
+          </div>
         </header>
         <section class="modal-card-body">
-          <img
-            src="https://images-na.ssl-images-amazon.com/images/M/MV5BMTM2NjExODYyOF5BMl5BanBnXkFtZTcwNTc0NjgyNA@@._V1_UX182_CR0,0,182,268_AL_.jpg"
-            alt=""
-          />
+          <div class="movie_content">
+            <img
+              src="https://images-na.ssl-images-amazon.com/images/M/MV5BMTM2NjExODYyOF5BMl5BanBnXkFtZTcwNTc0NjgyNA@@._V1_UX182_CR0,0,182,268_AL_.jpg"
+              alt=""
+              class="poster card"
+            />
+            <div class="card movie_content_tabs">
+              <div class="tabs is-size-7-mobile is-size-3-desktop">
+                <ul>
+                  <li class="is-active" data-tab="description-tab">
+                    <a>Description</a>
+                  </li>
+                  <li data-tab="reviews-tab"><a>Reviews</a></li>
+                </ul>
+              </div>
+              <div class="tab-content" id="description-tab">
+                <p class="is-size-7-mobile is-size-5-desktop">
+                  Vada is obsessed with death. Her mother is dead, and her
+                  father runs a funeral parlor. When Vada's father hires Shelly,
+                  a makeup expert, and begins to fall in love, Vada is outraged
+                  and does everything in her power to split them up.
+                </p>
+              </div>
+            </div>
+          </div>
         </section>
-        <footer class="modal-card-foot"></footer>
       </div>
-      <button class="modal-close is-large" aria-label="close"></button>
+      <button
+        class="modal-close is-large"
+        aria-label="close"
+        id="movie-modal-close"
+      ></button>
     </div>
+    <script src="js/modal.js"></script>
   </body>
 </html>
