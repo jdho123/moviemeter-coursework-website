@@ -34,20 +34,26 @@
       </div>
       <div class="navbar-menu" id="nav-menu">
         <div class="navbar-start">
-          <a href="#" class="navbar-item">Home</a>
-          <a href="#" class="navbar-item">Top Rated</a>
-          <div href="#" class="navbar-item has-dropdown">
-            <a href="#" class="navbar-link">Genre</a>
+          <a class="navbar-item" id="home-button">Home</a>
+          <a class="navbar-item" id="top-rated-button">Top Rated</a>
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">Genre</a>
+            <div class="navbar-dropdown" id="genre-dropdown"></div>
           </div>
         </div>
         <div class="navbar-end">
           <div class="navbar-item">
             <div class="field has-addons">
               <p class="control">
-                <input class="input" type="text" placeholder="Find a post" />
+                <input
+                  class="input"
+                  type="text"
+                  placeholder="Find a post"
+                  id="search-input"
+                />
               </p>
               <p class="control">
-                <button class="button">Search</button>
+                <button class="button" id="search-button">Search</button>
               </p>
             </div>
           </div>
@@ -55,43 +61,92 @@
       </div>
     </nav>
 
+    <!-- Movie Grid -->
+    <div
+      class="fixed-grid has-2-cols-mobile has-4-cols-tablet has-6-cols-desktop p-3"
+    >
+      <div class="grid is-gap-2 is-scrollable" id="movie-grid"></div>
+    </div>
+
     <!-- Movie Modal -->
-    <div class="modal is-active" id="movie-modal">
+    <div class="modal" id="movie-modal">
       <div class="modal-background"></div>
       <div class="modal-card">
-        <header class="modal-card-head is-flex has-text-centered">
-          <strong class="m-title is-size-3-mobile">7.3 / 10</strong>
-          <div class="movie_rating is-size-3-mobile ml-auto">
-            <span class="movie_rating_star filled">★</span>
-            <span class="movie_rating_star filled">★</span>
-            <span class="movie_rating_star filled">★</span>
-            <span class="movie_rating_star filled">★</span>
-            <span class="movie_rating_star">★</span>
+        <header
+          class="modal-card-head is-flex has-text-centered is-justify-content-space-between"
+        >
+          <strong
+            class="is-size-9-mobile is-size-2-desktop"
+            id="movie-rating"
+          ></strong>
+          <strong
+            class="is-size-9-mobile is-size-2-desktop"
+            id="movie-title"
+          ></strong>
+          <div
+            class="movie_star_rating is-size-6-mobile is-size-1-desktop unselectable"
+            id="movie-star-rating"
+          >
+            <span class="rating_star is-clickable expands" data-starnum="1"
+              >★</span
+            >
+            <span class="rating_star is-clickable expands" data-starnum="2"
+              >★</span
+            >
+            <span class="rating_star is-clickable expands" data-starnum="3"
+              >★</span
+            >
+            <span class="rating_star is-clickable expands" data-starnum="4"
+              >★</span
+            >
+            <span class="rating_star is-clickable expands" data-starnum="5"
+              >★</span
+            >
           </div>
         </header>
         <section class="modal-card-body">
           <div class="movie_content">
             <img
               src="https://images-na.ssl-images-amazon.com/images/M/MV5BMTM2NjExODYyOF5BMl5BanBnXkFtZTcwNTc0NjgyNA@@._V1_UX182_CR0,0,182,268_AL_.jpg"
-              alt=""
+              alt="Movie Poster"
               class="poster card"
+              onerror="this.src='assets/no_image.png';"
+              id="movie-poster"
             />
-            <div class="card movie_content_tabs">
+            <div class="card movie_content_tabs p-5">
               <div class="tabs is-size-7-mobile is-size-3-desktop">
                 <ul>
                   <li class="is-active" data-tab="description-tab">
                     <a>Description</a>
                   </li>
-                  <li data-tab="reviews-tab"><a>Reviews</a></li>
+                  <li data-tab="reviews-tab">
+                    <a>Reviews</a>
+                  </li>
                 </ul>
               </div>
-              <div class="tab-content" id="description-tab">
-                <p class="is-size-7-mobile is-size-5-desktop">
-                  Vada is obsessed with death. Her mother is dead, and her
-                  father runs a funeral parlor. When Vada's father hires Shelly,
-                  a makeup expert, and begins to fall in love, Vada is outraged
-                  and does everything in her power to split them up.
-                </p>
+              <div class="tab-content">
+                <div class="tab-pane is-active" id="description-tab">
+                  <p
+                    class="is-size-7-mobile is-size-5-desktop"
+                    id="movie-description"
+                  ></p>
+                </div>
+                <div class="tab-pane" id="reviews-tab">
+                  <div class="field has-addons">
+                    <div class="control is-expanded">
+                      <input
+                        class="input"
+                        type="text"
+                        placeholder="Write a Comment"
+                        id="comment-input"
+                      />
+                    </div>
+                    <p class="control">
+                      <button class="button" id="comment-button">Submit</button>
+                    </p>
+                  </div>
+                  <ul class="review-list is-scrollable" id="movie-reviews"></ul>
+                </div>
               </div>
             </div>
           </div>
@@ -103,6 +158,8 @@
         id="movie-modal-close"
       ></button>
     </div>
-    <script src="js/modal.js"></script>
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/navbar.js"></script>
+    <script type="module" src="js/modal.js"></script>
   </body>
 </html>
