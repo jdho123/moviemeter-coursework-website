@@ -6,6 +6,7 @@ const { movies } = require("../routes/movie.routes");
 describe("Express API Tests", () => {
   test("GET /movies/id/:id", async () => {
     const response = await request(app).get("/api/movies/id/118073");
+    expect(response.headers["content-type"]).toMatch(/json/);
     expect(response.statusCode).toBe(200);
     expect(response.body).toHaveProperty("id");
     expect(response.body).toHaveProperty("title");
@@ -21,6 +22,7 @@ describe("Express API Tests", () => {
     const response = await request(app).get(
       "/api/movies/id/118073?reviews=true"
     );
+    expect(response.headers["content-type"]).toMatch(/json/);
     expect(response.statusCode).toBe(200);
     expect(response.body).toHaveProperty("id");
     expect(response.body).toHaveProperty("title");
@@ -51,6 +53,7 @@ describe("Express API Tests", () => {
 
   test("GET /movies/id/:id/reviews", async () => {
     const response = await request(app).get("/api/movies/id/118073/reviews");
+    expect(response.headers["content-type"]).toMatch(/json/);
     expect(response.statusCode).toBe(200);
     expect(response.body).toBeInstanceOf(Array);
   });
@@ -173,6 +176,7 @@ describe("Express API Tests", () => {
 
   test("GET /movies/random", async () => {
     const response = await request(app).get("/api/movies/random?n=10&offset=0");
+    expect(response.headers["content-type"]).toMatch(/json/);
     expect(response.statusCode).toBe(200);
     expect(response.body).toBeInstanceOf(Array);
     expect(response.body.length).toBe(10);
@@ -201,6 +205,7 @@ describe("Express API Tests", () => {
 
   test("GET /movies/ranked", async () => {
     const response = await request(app).get("/api/movies/ranked?n=10&offset=0");
+    expect(response.headers["content-type"]).toMatch(/json/);
     expect(response.statusCode).toBe(200);
     expect(response.body).toBeInstanceOf(Array);
     expect(response.body.length).toBe(10);
@@ -231,6 +236,7 @@ describe("Express API Tests", () => {
     const response = await request(app).get(
       "/api/movies/genre/Drama?n=10&offset=0"
     );
+    expect(response.headers["content-type"]).toMatch(/json/);
     expect(response.statusCode).toBe(200);
     expect(response.body).toBeInstanceOf(Array);
     expect(response.body.length).toBe(10);
@@ -266,6 +272,7 @@ describe("Express API Tests", () => {
 
   test("GET /movies/all_genres", async () => {
     const response = await request(app).get("/api/movies/all_genres");
+    expect(response.headers["content-type"]).toMatch(/json/);
     expect(response.statusCode).toBe(200);
     expect(response.body).toBeInstanceOf(Array);
   });
@@ -274,6 +281,7 @@ describe("Express API Tests", () => {
     const response = await request(app).get(
       "/api/movies/search?q=The&n=10&offset=0"
     );
+    expect(response.headers["content-type"]).toMatch(/json/);
     expect(response.statusCode).toBe(200);
     expect(response.body).toBeInstanceOf(Array);
   });
