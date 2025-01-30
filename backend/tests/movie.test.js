@@ -76,6 +76,14 @@ describe("Express API Tests", () => {
   });
 
   test("POST /movies/id/:id/reviews", async () => {
+    const response = await request(app)
+      .post("/api/movies/id/118073/reviews")
+      .set("Content-Type", "plain/text")
+      .send("This is a review.");
+    expect(response.statusCode).toBe(400);
+  });
+
+  test("POST /movies/id/:id/reviews", async () => {
     const response = await request(app).post("/api/movies/id/abc/reviews");
     expect(response.statusCode).toBe(400);
   });
@@ -97,6 +105,14 @@ describe("Express API Tests", () => {
       .post("/api/movies/id/118073/rating/add")
       .send({ rating: 3 });
     expect(response.statusCode).toBe(201);
+  });
+
+  test("POST /movies/id/:id/rating/add", async () => {
+    const response = await request(app)
+      .post("/api/movies/id/118073/rating/add")
+      .set("Content-Type", "plain/text")
+      .send("3");
+    expect(response.statusCode).toBe(400);
   });
 
   test("POST /movies/id/:id/rating/add", async () => {
@@ -137,6 +153,14 @@ describe("Express API Tests", () => {
       .post("/api/movies/id/118073/rating/remove")
       .send({ rating: 3 });
     expect(response.statusCode).toBe(200);
+  });
+
+  test("POST /movies/id/:id/rating/remove", async () => {
+    const response = await request(app)
+      .post("/api/movies/id/118073/rating/remove")
+      .set("Content-Type", "plain/text")
+      .send("3");
+    expect(response.statusCode).toBe(400);
   });
 
   test("POST /movies/id/:id/rating/remove", async () => {

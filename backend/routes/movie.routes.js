@@ -67,6 +67,12 @@ router.get("/movies/id/:id/reviews", (req, res) => {
 });
 
 router.post("/movies/id/:id/reviews", (req, res) => {
+  if (!req.is("json")) {
+    return res
+      .status(400)
+      .json("Invalid Content-Type. Expected application/json");
+  }
+
   const movie_id = parseInt(req.params.id);
   if (isNaN(movie_id)) {
     res.status(400).send("Invalid movie id");
@@ -93,6 +99,12 @@ router.post("/movies/id/:id/reviews", (req, res) => {
 });
 
 router.post("/movies/id/:id/rating/add", (req, res) => {
+  if (!req.is("json")) {
+    return res
+      .status(400)
+      .json("Invalid Content-Type. Expected application/json");
+  }
+
   const movie_id = parseInt(req.params.id);
   if (isNaN(movie_id)) {
     res.status(400).send("Invalid movie id");
@@ -122,6 +134,12 @@ router.post("/movies/id/:id/rating/add", (req, res) => {
 });
 
 router.post("/movies/id/:id/rating/remove", (req, res) => {
+  if (!req.is("json")) {
+    return res
+      .status(400)
+      .json("Invalid Content-Type. Expected application/json");
+  }
+
   const movie_id = parseInt(req.params.id);
   if (isNaN(movie_id)) {
     res.status(400).send("Invalid movie id");
