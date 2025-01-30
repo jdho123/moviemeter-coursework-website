@@ -11,8 +11,6 @@ import {
 } from "./movies.js";
 import { stringToElement } from "./utils.js";
 
-// Navbar Toggling
-
 const nav_toggle = document.getElementById("nav-toggle");
 nav_toggle.addEventListener("click", () => {
   const target_id = nav_toggle.dataset.target;
@@ -21,8 +19,6 @@ nav_toggle.addEventListener("click", () => {
   nav_toggle.classList.toggle("is-active");
   target.classList.toggle("is-active");
 });
-
-// Navbar Dropdown
 
 const navbar_dropdown = document.getElementById("genre-dropdown");
 const all_genres = await getAllGenres();
@@ -37,8 +33,6 @@ all_genres.forEach((genre) => {
 
   navbar_dropdown.append(dropdown_item);
 });
-
-// Navbar Buttons
 
 document.getElementById("home-button").addEventListener("click", async () => {
   clearMovies();
@@ -61,8 +55,6 @@ document
     setMovieLoader(new MoviesGenreLoader(event.target.dataset.genre));
     displayMovies(await getMovieLoader().load());
   });
-
-// Navbar Search
 
 document.getElementById("search-button").addEventListener("click", async () => {
   const search_query = document.getElementById("search-input").value;
